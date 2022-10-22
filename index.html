@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Conversor de moedas</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Conversor de Moedas</h1>
+    </header>
+    <main>
+      <label>
+        Converter <strong>de</strong>
+        <select>
+          <option>
+            R$ Real brasileiro
+          </option>
+        </select>
+      </label>
+
+      <label>
+        Converter <strong>para</strong>
+        <select id="currency-select">
+          <option>
+            US$ Dólar americano
+          </option>
+          <option>
+            € Euro
+          </option>
+          <option>
+            Bitcoin
+          </option>
+        </select>
+      </label>
+
+      <label>
+        Valor
+        <input id="input-real" placeholder="R$00,00">
+      </label>
+
+      <button id="convert-button" type="button">Converter</button>
+
+      <section>
+        <div class="currency-container">
+          <img src="./assets/real.png" alt="bandeira-brasil">
+          <p class="currency-coin">Real</p>
+          <p class="currency-value" id="first-currency-value">R$ 00,00</p>
+        </div>
+
+        <img class="arrow" src="./assets/seta.png" alt="seta">
+        
+        <div class="currency-container">
+          <img id="currency-img" src="./assets/dolar-americano.png" alt="bandeira-país-conversão">
+          <p class="currency-coin" id="currency-coin">Dólar americano</p>
+          <p class="currency-value" id="second-currency-value">$00,00</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+
+</html>
