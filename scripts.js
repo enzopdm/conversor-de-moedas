@@ -11,31 +11,11 @@ const convertValues = () => {
   const fromCurrencyValue = document.getElementById('first-currency-value')
   const toCurrencyValue = document.getElementById('second-currency-value')
 
-  if (selectFrom.value == 'R$ Real brasileiro') {
-    fromCurrencyValue.innerHTML = new Intl.NumberFormat('pt-BR', {
-      style: 'currency', 
-      currency: 'BRL'
-    }).format(inputValue)
-  }
-
-
-  if(selectFrom.value === 'US$ Dólar americano'){
-    fromCurrencyValue.innerHTML = new Intl.NumberFormat('en-US', {
-      style: 'currency', 
-      currency: 'USD'
-    }).format(inputValue)
-  }
-
-  if(selectFrom.value === '€ Euro'){
-    fromCurrencyValue.innerHTML = new Intl.NumberFormat('de-DE', {
-      style: 'currency', 
-      currency: 'EUR'
-    }).format(inputValue)
-  }
-
-  if(selectFrom.value === 'Bitcoin'){
-    fromCurrencyValue.innerHTML = (inputValue)
-  }
+  //Alterar valor e moeda do 'Converter de'
+  fromCurrencyValue.innerHTML = new Intl.NumberFormat('pt-BR', {
+    style: 'currency', 
+    currency: 'BRL'
+  }).format(inputValue)
 
   //Alterar valor e moeda do 'Converter para'
   if (selectTo.value == 'R$ Real brasileiro') {
@@ -45,63 +25,23 @@ const convertValues = () => {
     }).format(inputValue)
   }
 
-
-  if(selectFrom.value === 'US$ Dólar americano' && selectTo.value === 'US$ Dólar americano'){
-    toCurrencyValue.innerHTML = new Intl.NumberFormat('en-US', {
-      style: 'currency', 
-      currency: 'USD'
-    }).format(inputValue)
-  } else if (selectTo.value === 'US$ Dólar americano') {
+  if (selectTo.value === 'US$ Dólar americano') {
     toCurrencyValue.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency', 
       currency: 'USD'
     }).format(inputValue / dolar)
   }
 
-  if(selectFrom.value === '€ Euro' && selectTo.value === '€ Euro'){
-    toCurrencyValue.innerHTML = new Intl.NumberFormat('de-DE', {
-      style: 'currency', 
-      currency: 'EUR'
-    }).format(inputValue)
-  } else if(selectTo.value === '€ Euro'){
+  if(selectTo.value === '€ Euro'){
     toCurrencyValue.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency', 
       currency: 'EUR'
     }).format(inputValue / euro)
   }
 
-  if(selectFrom.value === 'Bitcoin' && selectTo.value === 'Bitcoin'){
-    toCurrencyValue.innerHTML = (inputValue)
-  } else if(selectTo.value === 'Bitcoin'){
+  if(selectTo.value === 'BTC Bitcoin'){
     toCurrencyValue.innerHTML = (inputValue / bitcoin)
   }
-}
-
-const changeCurrencyFrom = () => {
-  const currencyCoin = document.getElementById('currency-coin-from')
-  const currencyImg = document.getElementById('currency-img-from')
-
-  if(selectFrom.value === 'R$ Real brasileiro'){
-    currencyCoin.innerHTML = 'Real'
-    currencyImg.src = "./assets/real.png"
-  }
-
-  if(selectFrom.value === 'US$ Dólar americano'){
-    currencyCoin.innerHTML = 'Dólar americano'
-    currencyImg.src = "./assets/dolar-americano.png"
-  }
-
-  if(selectFrom.value === '€ Euro'){
-    currencyCoin.innerHTML = 'Euro'
-    currencyImg.src = "./assets/euro.png"
-  }
-
-  if(selectFrom.value === 'Bitcoin'){
-    currencyCoin.innerHTML = 'Bitcoin'
-    currencyImg.src = "./assets/bitcoin.png"
-  }
-
-  convertValues()
 }
 
 const changeCurrencyTo = () => {
@@ -118,7 +58,7 @@ const changeCurrencyTo = () => {
     currencyImg.src = "./assets/euro.png"
   }
 
-  if(selectTo.value === 'Bitcoin'){
+  if(selectTo.value === 'BTC Bitcoin'){
     currencyCoin.innerHTML = 'Bitcoin'
     currencyImg.src = "./assets/bitcoin.png"
   }
@@ -127,5 +67,4 @@ const changeCurrencyTo = () => {
 }
 
 button.addEventListener('click', convertValues)
-selectFrom.addEventListener('change', changeCurrencyFrom)
 selectTo.addEventListener('change', changeCurrencyTo)

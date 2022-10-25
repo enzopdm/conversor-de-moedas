@@ -17,18 +17,9 @@
     <main>
       <label>
         Converter <strong>de</strong>
-        <select id="currency-select-from">
+        <select id="currency-select-from" disabled>
           <option>
             R$ Real brasileiro
-          </option>
-          <option>
-            US$ Dólar americano
-          </option>
-          <option>
-            € Euro
-          </option>
-          <option>
-            Bitcoin
           </option>
         </select>
       </label>
@@ -43,14 +34,14 @@
             € Euro
           </option>
           <option>
-            Bitcoin
+            BTC Bitcoin
           </option>
         </select>
       </label>
 
       <label>
         Valor
-        <input id="input-value" placeholder="R$00,00">
+        <input id="input-value" type="number" placeholder="R$00,00">
       </label>
 
       <button id="convert-button" type="button">Converter</button>
